@@ -45,6 +45,12 @@ class Stringifier {
             }
 
             value[stringify](this);
+        } else if (value.toJSON) {
+            if (this.options.includeConstructorNames) {
+                this.string += value.constructor.name;
+            }
+
+            this.string += JSON.stringify(value);
         } else {
             Object.prototype[stringify].call(value, this);
         }
