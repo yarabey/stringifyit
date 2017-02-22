@@ -55,7 +55,7 @@ class Stringifier {
  * Helper for simple stringify single value
  *
  * @example
- * const {stringifyit} = require('node-stringifyit');
+ * const {stringifyit} = require('stringifyit');
  *
  * stringifyit({key: 'value', value: 'key'}) === stringifyit({value: 'key', key: 'value'}); // true
  * stringifyit(new Set(['value1', 'value2'])) === stringifyit(new Set(['value2', 'value1'])); // true

@@ -1,6 +1,15 @@
 'use strict';
 
-const stringifyit = require('.').stringifyit;
+const Stringify = require('.');
+
+const stringifyit = Stringify.stringifyit;
+const stringify = Stringify.stringify;
+
+class CustomArray extends Array {
+    [stringify](stringifier) {
+        stringifier.update({a: {b: 5}});
+    }
+}
 
 const testCases = {
     map: [
@@ -34,6 +43,10 @@ const testCases = {
     objectNull: [
         Object.create(null),
         Object.create(null)
+    ],
+    customRules: [
+        new CustomArray(),
+        {a: {b: 5}}
     ],
     complex: [
         {
@@ -81,47 +94,51 @@ const testCases = {
 
 describe('Stringifyit', () => {
     it('should order Maps', () => {
-        checkHashesEquality(testCases.map, true);
+        checkStringsEquality(testCases.map, true);
     });
 
     it('should order Sets', () => {
-        checkHashesEquality(testCases.set, true);
+        checkStringsEquality(testCases.set, true);
     });
 
-    it('should hash TypedArray as Array', () => {
-        checkHashesEquality(testCases.array, true);
+    it('should stringify TypedArray as Array', () => {
+        checkStringsEquality(testCases.array, true);
     });
 
     it('should sort object keys', () => {
-        checkHashesEquality(testCases.object, true);
+        checkStringsEquality(testCases.object, true);
     });
 
-    it('should not hash with types by default', () => {
-        checkHashesEquality(testCases.types, true);
+    it('should not stringify with types by default', () => {
+        checkStringsEquality(testCases.types, true);
     });
 
-    it('should hash Object.create(null) objects', () => {
-        checkHashesEquality(testCases.objectNull, true);
+    it('should stringify Object.create(null) objects', () => {
+        checkStringsEquality(testCases.objectNull, true);
     });
 
-    it('should hash with types if includePrimitiveTypes is true', () => {
-        checkHashesEquality(testCases.types, false, {includePrimitiveTypes: true});
+    it('should stringify with types if includePrimitiveTypes is true', () => {
+        checkStringsEquality(testCases.types, false, {includePrimitiveTypes: true});
     });
 
-    it('should hash nested objects', () => {
-        checkHashesEquality(testCases.nestedObject, false);
+    it('should stringify nested objects', () => {
+        checkStringsEquality(testCases.nestedObject, false);
     });
 
     it('should not sort arrays', () => {
-        checkHashesEquality(testCases.unorderedArray, false);
+        checkStringsEquality(testCases.unorderedArray, false);
     });
 
-    it('should hash complex data', () => {
-        checkHashesEquality(testCases.complex, true);
+    it('should stringify complex data', () => {
+        checkStringsEquality(testCases.complex, true);
+    });
+
+    it('should stringify using custom rules for types', () => {
+        checkStringsEquality(testCases.customRules, true);
     });
 });
 
-function checkHashesEquality(testCase, shouldBeEqual, params) {
+function checkStringsEquality(testCase, shouldBeEqual, params) {
     const string1 = stringifyit(testCase[0], params);
     const string2 = stringifyit(testCase[1], params);
 
