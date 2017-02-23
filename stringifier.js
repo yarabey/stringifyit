@@ -31,28 +31,22 @@ class Stringifier {
      * @param value {*}
      */
     update(value) {
-        var type = typeOf(value);
+        var type = typeof value;
 
-        if (type !== 'object') {
+        if (type !== 'object' || value === null) {
             if (this.options.includePrimitiveTypes) {
                 this.string += `${type[0]}^`;
             }
 
             this.string += String(value);
-        } else if (value[stringify]) {
+        } else if (!value.constructor) {
+            Object.prototype[stringify].call(value, this);
+        } else {
             if (this.options.includeConstructorNames) {
                 this.string += value.constructor.name;
             }
 
             value[stringify](this);
-        } else if (value.toJSON) {
-            if (this.options.includeConstructorNames) {
-                this.string += value.constructor.name;
-            }
-
-            this.string += JSON.stringify(value);
-        } else {
-            Object.prototype[stringify].call(value, this);
         }
     }
 }
@@ -87,26 +81,6 @@ function stringifyit(value, options) {
 module.exports = Stringifier;
 module.exports.stringify = stringify;
 module.exports.stringifyit = stringifyit;
-
-/**
- * Custom typeof, returns `'null'` for `null` object
- * @param value {*}
- * @returns {string}
- * @private
- */
-function typeOf(value) {
-    var type = typeof value;
-
-    return type === 'object' ? typeOfObject(value) : type;
-}
-
-function typeOfObject(object) {
-    if (object === null) {
-        return 'null';
-    }
-
-    return object === null ? 'null' : 'object';
-}
 
 /**
  * Custom stringify callback declared with {@link Stringifier~stringify stringify Symbol}

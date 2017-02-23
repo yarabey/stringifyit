@@ -41,14 +41,14 @@ Benchmarked with Node.js v6.9.5
 ## Results
 
 ```
-array x 1,679,915 ops/sec ±4.25% (80 runs sampled)
-object x 2,152,083 ops/sec ±3.65% (82 runs sampled)
-nestedObject x 27,446 ops/sec ±2.79% (83 runs sampled)
-complexObject_5items x 32,950 ops/sec ±2.53% (83 runs sampled)
-complexObject_10items x 16,690 ops/sec ±2.42% (81 runs sampled)
-complexObject_100items x 1,499 ops/sec ±2.59% (81 runs sampled)
-set x 197,390 ops/sec ±2.15% (80 runs sampled)
-map x 181,180 ops/sec ±2.08% (82 runs sampled)
+array x 1,947,707 ops/sec ±1.60% (85 runs sampled)
+object x 2,366,530 ops/sec ±1.30% (89 runs sampled)
+nestedObject x 29,384 ops/sec ±1.48% (87 runs sampled)
+complexObject_5items x 35,847 ops/sec ±1.87% (87 runs sampled)
+complexObject_10items x 18,407 ops/sec ±2.03% (87 runs sampled)
+complexObject_100items x 1,682 ops/sec ±2.09% (85 runs sampled)
+set x 215,921 ops/sec ±2.52% (84 runs sampled)
+map x 190,451 ops/sec ±2.57% (84 runs sampled)
 ```
 
 

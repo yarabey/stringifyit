@@ -29,13 +29,15 @@ function stringifyArray(stringifier, forceSort) {
 
     if (forceSort || stringifier.options.sortArrays) {
         var arrayOfStrings = [];
+
         while (index --> 0) {
             arrayOfStrings.push(stringifyit(this[index]));
         }
+
         stringifier.string += arrayOfStrings.sort().join('');
     } else {
         while (index --> 0) {
-            stringifier.update(this[index], stringifier);
+            stringifier.update(this[index]);
         }
     }
 
