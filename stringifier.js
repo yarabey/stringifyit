@@ -1,6 +1,6 @@
 'use strict';
 
-var {StringifierRangeError} = require('./error');
+var StringifierRangeError = require('./error').StringifierRangeError;
 
 /**
  * @type {Stringifier~stringify}

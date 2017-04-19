@@ -4,6 +4,7 @@ const Stringify = require('.');
 
 const stringifyit = Stringify.stringifyit;
 const stringify = Stringify.stringify;
+const StringifierRangeError = require('./error').StringifierRangeError;
 
 class CustomArray extends Array {
     [stringify](stringifier) {
@@ -135,6 +136,13 @@ describe('Stringifyit', () => {
 
     it('should stringify using custom rules for types', () => {
         checkStringsEquality(testCases.customRules, true);
+    });
+
+    it('should throw StringifierRangeError for cycled object', () => {
+        const data = {};
+        data.data = data;
+
+        expect(stringifyit.bind(null, data)).toThrowError(StringifierRangeError);
     });
 });
 
