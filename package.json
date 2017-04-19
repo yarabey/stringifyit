@@ -1,6 +1,6 @@
 {
   "name": "stringifyit",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Fast object stringifier",
   "main": "index.js",
   "scripts": {
