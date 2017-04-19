@@ -1,5 +1,7 @@
 'use strict';
 
+var {StringifierRangeError} = require('./error');
+
 /**
  * @type {Stringifier~stringify}
  */
@@ -40,13 +42,13 @@ class Stringifier {
 
             this.string += String(value);
         } else if (!value.constructor) {
-            Object.prototype[stringify].call(value, this);
+            callObjectStringify(value, this);
         } else {
             if (this.options.includeConstructorNames) {
                 this.string += value.constructor.name;
             }
 
-            value[stringify](this);
+            callStringify(value, this);
         }
     }
 }
@@ -82,11 +84,35 @@ module.exports = Stringifier;
 module.exports.stringify = stringify;
 module.exports.stringifyit = stringifyit;
 
+function callStringify(value, stringifier) {
+    try {
+        value[stringify](stringifier);
+    } catch (error) {
+        throwCustomError(error);
+    }
+}
+
+function callObjectStringify(value, stringifier) {
+    try {
+        Object.prototype[stringify].call(value, stringifier);
+    } catch (error) {
+        throwCustomError(error);
+    }
+}
+
+function throwCustomError(error) {
+    if (error instanceof RangeError) {
+        throw new StringifierRangeError();
+    }
+
+    throw error;
+}
+
 /**
  * Custom stringify callback declared with {@link Stringifier~stringify stringify Symbol}
  *
  * @example
- * const {stringify} = require('node-stringifyit');
+ * const {stringify} = require('stringifyit');
  * CustomType.prototype[stringify] = function (stringifier) {
  *     stringifier.string += 'start';
  *

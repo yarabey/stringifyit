@@ -98,7 +98,7 @@ Custom stringify callback declared with [stringify Symbol](#Stringifier..stringi
 
 **Example**  
 ```js
-const {stringify} = require('node-stringifyit');
+const {stringify} = require('stringifyit');
 CustomType.prototype[stringify] = function (stringifier) {
     stringifier.string += 'start';
 
