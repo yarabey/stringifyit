@@ -11,14 +11,15 @@ var stringifyit = Stringifier.stringifyit;
 module.exports = Map.prototype[stringify] = WeakMap.prototype[stringify] = function (stringifier) {
     var array = [];
     var mapArray = Array.from(this);
+    var {options} = stringifier;
 
     stringifier.string += 'map^[[';
 
     for (var i = 0; i < mapArray.length; i++) {
         var item = mapArray[i];
         array.push([
-            stringifyit(item[0]),
-            stringifyit(item[1])
+            stringifyit(item[0], options),
+            stringifyit(item[1], options)
         ]);
     }
     stringifier.string += `${array.sort(compareMapItems).join('')}]]`;

@@ -34,8 +34,8 @@ const testCases = {
         {a: 'a', b: {a: 2}}
     ],
     unorderedArray: [
-        [5, 4, 3, 2, 1, 0],
-        [0, 5, 4, 3, 2, 1]
+        [5, 4, 3, 2, 1, 0, [0, 1]],
+        [0, 5, 4, 3, 2, 1, [1, 0]]
     ],
     types: [
         ['1', '2', '3'],
@@ -128,6 +128,10 @@ describe('Stringifyit', () => {
 
     it('should not sort arrays', () => {
         checkStringsEquality(testCases.unorderedArray, false);
+    });
+
+    it('should sort arrays if sortArrays is true', () => {
+        checkStringsEquality(testCases.unorderedArray, true, {sortArrays: true});
     });
 
     it('should stringify complex data', () => {

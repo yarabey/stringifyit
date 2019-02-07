@@ -23,15 +23,15 @@ module.exports = stringifyArray;
  * @param [forceSort] {boolean} Sort array, if true ignore sortArrays options
  */
 function stringifyArray(stringifier, forceSort) {
-    var index = this.length;
+    let index = this.length;
 
     stringifier.string += '[';
 
     if (forceSort || stringifier.options.sortArrays) {
-        var arrayOfStrings = [];
+        const arrayOfStrings = [];
 
         while (index --> 0) {
-            arrayOfStrings.push(stringifyit(this[index]));
+            arrayOfStrings.push(stringifyit(this[index], stringifier.options));
         }
 
         stringifier.string += arrayOfStrings.sort().join('');
