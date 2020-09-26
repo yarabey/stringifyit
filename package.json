@@ -26,7 +26,13 @@
     "scripts": {
         "test": "jasmine index.spec.js",
         "docs": "jsdoc2md index.js stringifier.js -t docs/readme-template.md > README.md",
-        "bench": "node --expose-gc ./bench/speed.js"
+        "bench": "node --expose-gc ./bench/speed.js",
+        "clean": "rm -rf ./dist",
+        "copy:package": "cp ./package.json ./dist/",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "release": "npm run clean && npm run build && npm run copy:package"
     },
     "engines": {
         "node": ">=12.6.0"
