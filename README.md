@@ -220,7 +220,3 @@ complexObject_100items x 1,682 ops/sec ±2.09% (85 runs sampled)
 set x 215,921 ops/sec ±2.52% (84 runs sampled)
 map x 190,451 ops/sec ±2.57% (84 runs sampled)
 ```
-
-# License
-
-MIT
