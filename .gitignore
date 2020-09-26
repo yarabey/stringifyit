@@ -17,6 +17,8 @@ npm-debug.log*
 
 # Reports
 reports/
+coverage/
+jest.results.json
 
 # Build
 dist/
