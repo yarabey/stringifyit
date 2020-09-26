@@ -15,5 +15,8 @@ package-lock.json
 # Debug
 npm-debug.log*
 
+# Reports
+reports/
+
 # Build
 dist/
