@@ -32,9 +32,9 @@
         "build:esm": "tsc -p tsconfig.esm.json",
         "build": "npm run build:cjs && npm run build:esm",
         "release": "npm run clean && npm run build && npm run copy:package",
-        "test": "jest",
-        "test:ci": "jest --ci --json  > jest.results.json",
-        "test:watch": "jest --watch",
+        "test": "jest --verbose",
+        "test:ci": "jest --ci --json",
+        "test:watch": "jest --verbose --watch",
         "test:report": "jest --ci --preset=./configs/jest/ci.js"
     },
     "engines": {
