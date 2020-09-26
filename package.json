@@ -26,7 +26,7 @@
     "scripts": {
         "docs": "jsdoc2md index.js stringifier.js -t docs/readme-template.md > README.md",
         "bench": "node --expose-gc ./bench/speed.js",
-        "clean": "rm -rf ./dist",
+        "clean": "rm -rf ./dist ./coverage ./reports ./jest.results.json",
         "copy:package": "cp ./package.json ./dist/",
         "build:cjs": "tsc -p tsconfig.cjs.json",
         "build:esm": "tsc -p tsconfig.esm.json",
