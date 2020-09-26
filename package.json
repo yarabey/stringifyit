@@ -47,7 +47,6 @@
         "faker": "^5.1.0",
         "jest": "^26.4.2",
         "jest-html-reporters": "^2.0.4",
-        "jsdoc-to-markdown": "^3.0.0",
         "prettier": "^2.1.2",
         "ts-jest": "^26.4.0",
         "typescript": "^4.0.3"
