@@ -1,6 +1,4 @@
 const config = {
-    verbose: true,
-
     transform: {
         '^.+\\.(t|j)sx?$': 'ts-jest',
     },
