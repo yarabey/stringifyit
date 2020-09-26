@@ -12,12 +12,13 @@ $ npm install stringifyit --save
 
 # Features
 
--   Supports node.js >= 4.0.0
--   Supports Map/WeakMap, Set/WeakSet and typed arrays
--   Supports sort Set, Map, object keys and optional sort arrays
--   Supports custom stringify rules for user-defined classes
--   Useful for browsers
--   Very fast stringify library
+-   Wrote on TypeScript;
+-   Supports Node.JS >= 12.6.0;
+-   Supports `Map`/`WeakMap`, `Set`/`WeakSet` and typed arrays;
+-   Supports sort `Set`, `Map`, object keys and optional sort arrays;
+-   Supports custom stringify rules for user-defined classes;
+-   Useful for browsers;
+-   Very fast stringify library.
 
 # API
 
