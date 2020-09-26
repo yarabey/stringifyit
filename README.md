@@ -6,7 +6,9 @@ See [benchmarks](#benchmarks) for compare to other libs.
 
 # Install
 
-`npm i stringifyit --save`
+```shell
+$ npm install stringifyit --save
+```
 
 # Features
 
