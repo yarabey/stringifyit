@@ -24,7 +24,6 @@
         "url": "https://github.com/yarabey/stringifyit/issues"
     },
     "scripts": {
-        "docs": "jsdoc2md index.js stringifier.js -t docs/readme-template.md > README.md",
         "clean": "rm -rf ./dist ./coverage ./reports ./jest.results.json",
         "copy:package": "cp ./package.json ./dist/",
         "build:cjs": "tsc -p tsconfig.cjs.json",
