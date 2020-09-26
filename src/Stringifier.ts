@@ -20,10 +20,10 @@ class Stringifier implements IStringifier {
     public string: string;
     public options: StringifierOptions;
 
-    constructor(options: StringifierOptions) {
+    constructor(options: StringifierOptions = {}) {
         this.string = '';
 
-        this.options = options || {};
+        this.options = options;
     }
 
     /**
@@ -50,7 +50,7 @@ class Stringifier implements IStringifier {
     }
 }
 
-export function stringifyit(value: unknown, options: StringifierOptions): string {
+export function stringifyit(value: unknown, options?: StringifierOptions): string {
     const stringifier = new Stringifier(options);
 
     stringifier.update(value);
