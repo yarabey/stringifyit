@@ -30,6 +30,7 @@
         "build": "npm run build:cjs && npm run build:esm",
         "copy:package": "cp ./package.json ./dist/",
         "release": "npm run clean && npm run build && npm run copy:package",
+        "publish:git": "npm run release && gh-pages -d dist -b staging-branch",
         "test:report": "jest --ci --preset=./configs/jest/ci.js",
         "test:watch": "jest --verbose --watch",
         "test:ci": "jest --ci --json",
