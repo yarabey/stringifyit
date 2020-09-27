@@ -45,6 +45,7 @@
         "@types/jest": "^26.0.14",
         "benchmark": "^2.1.4",
         "faker": "^5.1.0",
+        "gh-pages": "^3.1.0",
         "jest": "^26.4.2",
         "jest-html-reporters": "^2.0.4",
         "prettier": "^2.1.2",
