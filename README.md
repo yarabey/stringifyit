@@ -1,26 +1,26 @@
-# stringifyit
+# stringifyit ![npm](https://img.shields.io/npm/v/stringifyit?color=green&label=version&style=flat) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/stringifyit?color=green&label=size)
 
-Fast Node.JS stringify library with sorting and typing. Provides [Stringifier](#Stringifier) class. [Stringifier](#Stringifier) provides [stringify Symbol](#stringifierstringify--symbol) to allow you [customize](#stringifierstringifycallback--function) stringifying your own classes.
+Fast Node.js stringify library with sorting and typing. Provides [Stringifier](#Stringifier) class. [Stringifier](#Stringifier) provides [stringify Symbol](#stringifierstringify--symbol) to allow you [customize](#stringifierstringifycallback--function) stringifying your own classes.
 
 See [benchmarks](#benchmarks) for compare to other libs.
 
-# Install
+## Install
 
 ```shell
 $ npm install stringifyit --save
 ```
 
-# Features
+## Features
 
 -   Wrote on TypeScript;
--   Supports Node.JS >= 12.6.0;
+-   Supports Node.js >= 12.6.0;
 -   Supports `Map`/`WeakMap`, `Set`/`WeakSet` and typed arrays;
 -   Supports sort `Set`, `Map`, object keys and optional sort arrays;
 -   Supports custom stringify rules for user-defined classes;
 -   Useful for browsers;
 -   Very fast stringify library.
 
-# API
+## API
 
 ## Classes
 
@@ -203,15 +203,15 @@ stringifyit(5) === stringifyit('5'); // false
 
 ### Date.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-# Benchmarks
+## Benchmarks
 
-Benchmarked with Node.js v6.9.5
+Benchmarked with Node.js v12.6
 
-## Usage
+### Usage
 
 -   `npm run bench` to run benchmarking stringifyit operations/second for different cases
 
-## Results
+### Results
 
 ```
 array x 1,947,707 ops/sec ±1.60% (85 runs sampled)
