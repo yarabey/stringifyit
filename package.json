@@ -38,7 +38,7 @@
         "bench": "npm run bench:speed"
     },
     "engines": {
-        "node": ">=12.6.0"
+        "node": ">=12.6"
     },
     "dependencies": {},
     "devDependencies": {
