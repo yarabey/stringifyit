@@ -1,5 +1,5 @@
 import type {IStringifier} from '../Stringifier';
-import stringify from './stringifySymbol';
+import stringify from './stringify';
 import handleError from './handleError';
 
 function callObjectStringify(value: any, stringifier: IStringifier): void {
