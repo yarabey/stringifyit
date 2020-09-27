@@ -15,26 +15,27 @@
         "object",
         "es6"
     ],
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/yarabey/stringifyit.git"
-    },
     "homepage": "https://github.com/yarabey/stringifyit",
     "bugs": {
         "url": "https://github.com/yarabey/stringifyit/issues"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/yarabey/stringifyit.git"
+    },
     "scripts": {
         "clean": "rm -rf ./dist ./coverage ./reports ./jest.results.json",
-        "copy:package": "cp ./package.json ./dist/",
         "build:cjs": "tsc -p tsconfig.cjs.json",
         "build:esm": "tsc -p tsconfig.esm.json",
         "build": "npm run build:cjs && npm run build:esm",
+        "copy:package": "cp ./package.json ./dist/",
         "release": "npm run clean && npm run build && npm run copy:package",
-        "test": "jest --verbose",
-        "test:ci": "jest --ci --json",
-        "test:watch": "jest --verbose --watch",
         "test:report": "jest --ci --preset=./configs/jest/ci.js",
-        "bench": "node --expose-gc ./bench/speed.js"
+        "test:watch": "jest --verbose --watch",
+        "test:ci": "jest --ci --json",
+        "test": "jest --verbose",
+        "bench:speed": "node --expose-gc ./bench/speed.js",
+        "bench": "npm run bench:speed"
     },
     "engines": {
         "node": ">=12.6.0"
