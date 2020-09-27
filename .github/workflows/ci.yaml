@@ -2,9 +2,13 @@ name: Continuous Integration
 
 on:
     pull_request:
+        paths-ignore:
+            - '**/*.md'
         branches:
             - master
     push:
+        paths-ignore:
+            - '**/*.md'
         branches:
             - master
 
@@ -14,19 +18,16 @@ jobs:
         strategy:
             matrix:
                 node-version: [12.x]
-
         steps:
-            - uses: actions/checkout@v2
-
+            - name: Checkout
+              uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-
             - name: Install dependencies
               run: npm install
-
-            - name: Build
+            - name: Compile
               run: npm run build
 
     type-check:
@@ -35,18 +36,15 @@ jobs:
         strategy:
             matrix:
                 node-version: [12.x]
-
         steps:
-            - uses: actions/checkout@v2
-
+            - name: Checkout
+              uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-
             - name: Install dependencies
               run: npm install
-
             - name: Typecheck
               uses: andoshin11/typescript-error-reporter-action@v1.0.2
 
@@ -56,19 +54,16 @@ jobs:
         strategy:
             matrix:
                 node-version: [12.x]
-
         steps:
-            - uses: actions/checkout@v2
-
+            - name: Checkout
+              uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-
             - name: Install dependencies
               run: npm install
-
-            - name: Unit-tests
+            - name: Unit-testing
               uses: mattallty/jest-github-action@v1.0.3
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,20 +77,16 @@ jobs:
         strategy:
             matrix:
                 node-version: [12.x]
-
         steps:
-            - uses: actions/checkout@v2
-
+            - name: Checkout
+              uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-
             - name: Install dependencies
               run: npm install
-
-            - name: Build
+            - name: Compile
               run: npm run build
-
             - name: Benchmark
               run: npm run bench
