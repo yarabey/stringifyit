@@ -22,7 +22,7 @@ $ npm install stringifyit --save
 
 ## API
 
-## Classes
+### Classes
 
 <dl>
 <dt><a href="#Stringifier">Stringifier</a></dt>
@@ -31,14 +31,14 @@ Sort Map, Set and object keys by default without ability to avoid it</p>
 </dd>
 </dl>
 
-## Members
+### Members
 
 <dl>
 <dt><a href="#stringify">stringify</a> : <code><a href="#Stringifier..stringify">stringify</a></code></dt>
 <dd></dd>
 </dl>
 
-## Functions
+### Functions
 
 <dl>
 <dt><a href="#stringifyit">stringifyit(value, [options])</a> ⇒ <code>string</code></dt>
@@ -48,7 +48,7 @@ Sort Map, Set and object keys by default without ability to avoid it</p>
 
 <a name="Stringifier"></a>
 
-## Stringifier
+### Stringifier
 
 Provides interface to stringify any value
 Sort Map, Set and object keys by default without ability to avoid it
@@ -67,7 +67,7 @@ Sort Map, Set and object keys by default without ability to avoid it
 
 <a name="new_Stringifier_new"></a>
 
-### new Stringifier([options])
+#### new Stringifier([options])
 
 | Param     | Type                                          |
 | --------- | --------------------------------------------- |
@@ -75,7 +75,7 @@ Sort Map, Set and object keys by default without ability to avoid it
 
 <a name="Stringifier+string"></a>
 
-### stringifier.string : <code>string</code>
+#### stringifier.string : <code>string</code>
 
 Accumulator string
 
@@ -83,7 +83,7 @@ Accumulator string
 **Access:** public
 <a name="Stringifier+update"></a>
 
-### stringifier.update(value)
+#### stringifier.update(value)
 
 Stringifies value and append it to current accumulator string
 
@@ -95,7 +95,7 @@ Stringifies value and append it to current accumulator string
 
 <a name="Stringifier..stringifyCallback"></a>
 
-### Stringifier~stringifyCallback : <code>function</code>
+#### Stringifier~stringifyCallback : <code>function</code>
 
 Custom stringify callback declared with [stringify Symbol](#Stringifier..stringify)
 
@@ -107,9 +107,10 @@ Custom stringify callback declared with [stringify Symbol](#Stringifier..stringi
 
 **Example**
 
-```js
-const {stringify} = require('stringifyit');
-CustomType.prototype[stringify] = function (stringifier) {
+```typescript
+import {IStringifier, stringify} from 'stringifyit';
+
+CustomType.prototype[stringify] = function (stringifier: IStringifier): void {
     stringifier.string += 'start';
 
     stringifier.update(this.someProp);
@@ -121,14 +122,14 @@ CustomType.prototype[stringify] = function (stringifier) {
 
 <a name="Stringifier..stringify"></a>
 
-### Stringifier~stringify : <code>Symbol</code>
+#### Stringifier~stringify : <code>Symbol</code>
 
 Symbol to add custom stringify rules for user types
 
 **Kind**: inner typedef of <code>[Stringifier](#Stringifier)</code>
 <a name="Stringifier..options"></a>
 
-### Stringifier~options : <code>Object</code>
+#### Stringifier~options : <code>Object</code>
 
 Stringifier options
 
@@ -143,12 +144,12 @@ Stringifier options
 
 <a name="stringify"></a>
 
-## stringify : <code>[stringify](#Stringifier..stringify)</code>
+### stringify : <code>[stringify](#Stringifier..stringify)</code>
 
 **Kind**: global variable
 <a name="stringifyit"></a>
 
-## stringifyit(value, [options]) ⇒ <code>string</code>
+### stringifyit(value, [options]) ⇒ <code>string</code>
 
 Helper for simple stringify single value
 
@@ -161,19 +162,19 @@ Helper for simple stringify single value
 
 **Example**
 
-```js
-const {stringifyit} = require('stringifyit');
+```typescript
+import {stringifyit} from 'stringifyit';
 
 stringifyit({key: 'value', value: 'key'}) === stringifyit({value: 'key', key: 'value'}); // true
 stringifyit(new Set(['value1', 'value2'])) === stringifyit(new Set(['value2', 'value1'])); // true
 stringifyit(
-    new Map([
+    new Map<string, string>([
         ['key', 'value'],
         ['value', 'key'],
     ]),
 ) ===
     stringifyit(
-        new Map([
+        new Map<string, string>([
             ['value', 'key'],
             ['key', 'value'],
         ]),
@@ -185,23 +186,23 @@ stringifyit([1, 2, 3]) === stringifyit([1, 3, 2]); // false
 stringifyit(5) === stringifyit('5'); // false
 ```
 
-## Custom stringifiers [source](stringifiers)
+### Custom stringifiers [source](stringifiers)
 
-### Object.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### Object.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### Array.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### Array.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### TypedArray.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### TypedArray.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### Map.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### Date.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### WeakMap.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### Map.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### Set.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### WeakMap.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### WeakSet.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### Set.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
-### Date.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
+#### WeakSet.prototype[[stringify](#Stringifier..stringify)] : <code>[stringifyCallback](#Stringifier..stringifyCallback)</code>
 
 ## Benchmarks
 
