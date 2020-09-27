@@ -13,7 +13,7 @@ const params = {
     includePrimitiveTypes: true,
 };
 
-let testCases = {
+const testCases = {
     array: new Array(10).fill('sdfgsdfg'),
     object: {
         a: 'dfgsdfg',
