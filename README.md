@@ -1,4 +1,4 @@
-# stringifyit ![npm](https://img.shields.io/npm/v/stringifyit?color=green&label=version&style=flat) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/stringifyit?color=green&label=size)
+# stringifyit ![npm](https://img.shields.io/npm/v/stringifyit?color=brightgreen&label=version&style=flat) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/stringifyit?color=brightgreen&label=size)
 
 Fast Node.js stringify library with sorting and typing. Provides [Stringifier](#Stringifier) class. [Stringifier](#Stringifier) provides [stringify Symbol](#stringifierstringify--symbol) to allow you [customize](#stringifierstringifycallback--function) stringifying your own classes.
 
