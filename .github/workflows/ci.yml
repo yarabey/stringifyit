@@ -25,7 +25,6 @@ jobs:
               run: npm run build
 
     type-check:
-        needs: build
         runs-on: ubuntu-18.04
         strategy:
             matrix:
@@ -43,7 +42,6 @@ jobs:
               uses: andoshin11/typescript-error-reporter-action@v1.0.2
 
     unit-tests:
-        needs: build
         runs-on: ubuntu-18.04
         strategy:
             matrix:
