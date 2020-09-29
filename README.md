@@ -107,10 +107,10 @@ Custom stringify callback declared with [stringify Symbol](#Stringifier..stringi
 
 **Example**
 
-```typescript
-import {IStringifier, stringify} from 'stringifyit';
+```javascript
+import {stringify} from 'stringifyit';
 
-CustomType.prototype[stringify] = function (stringifier: IStringifier): void {
+CustomType.prototype[stringify] = function (stringifier) {
     stringifier.string += 'start';
 
     stringifier.update(this.someProp);
@@ -162,19 +162,19 @@ Helper for simple stringify single value
 
 **Example**
 
-```typescript
+```javascript
 import {stringifyit} from 'stringifyit';
 
 stringifyit({key: 'value', value: 'key'}) === stringifyit({value: 'key', key: 'value'}); // true
 stringifyit(new Set(['value1', 'value2'])) === stringifyit(new Set(['value2', 'value1'])); // true
 stringifyit(
-    new Map<string, string>([
+    new Map([
         ['key', 'value'],
         ['value', 'key'],
     ]),
 ) ===
     stringifyit(
-        new Map<string, string>([
+        new Map([
             ['value', 'key'],
             ['key', 'value'],
         ]),
@@ -206,11 +206,11 @@ stringifyit(5) === stringifyit('5'); // false
 
 ## Benchmarks
 
-Benchmarked with Node.js v12.6
+Benchmarked with Node.js v12.6.
 
 ### Usage
 
--   `npm run bench` to run benchmarking stringifyit operations/second for different cases
+-   `npm run bench` to run benchmarking stringifyit operations/second for different cases.
 
 ### Results
 
