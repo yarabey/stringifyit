@@ -1,6 +1,7 @@
+import type {IStringifier, StringifierOptions} from '../types';
 import {StringifierRangeError} from '../errors';
 import {stringify} from '../utils';
-import {IStringifier, StringifierOptions, stringifyit} from '../index';
+import {stringifyit} from '../index';
 
 function checkStringsEquality(testCase: any, shouldBeEqual: boolean, params?: StringifierOptions): void {
     const string1 = stringifyit(testCase[0], params);
@@ -137,7 +138,7 @@ const testCases = {
     ],
 };
 
-describe('Stringifyit', () => {
+describe('stringifyit', () => {
     it('should order Maps', () => {
         checkStringsEquality(testCases.map, true);
     });
