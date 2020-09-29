@@ -107,10 +107,10 @@ Custom stringify callback declared with [stringify Symbol](#Stringifier..stringi
 
 **Example**
 
-```typescript
-import {IStringifier, stringify} from 'stringifyit';
+```javascript
+import {stringify} from 'stringifyit';
 
-CustomType.prototype[stringify] = function (stringifier: IStringifier): void {
+CustomType.prototype[stringify] = function (stringifier) {
     stringifier.string += 'start';
 
     stringifier.update(this.someProp);
@@ -162,19 +162,19 @@ Helper for simple stringify single value
 
 **Example**
 
-```typescript
+```javascript
 import {stringifyit} from 'stringifyit';
 
 stringifyit({key: 'value', value: 'key'}) === stringifyit({value: 'key', key: 'value'}); // true
 stringifyit(new Set(['value1', 'value2'])) === stringifyit(new Set(['value2', 'value1'])); // true
 stringifyit(
-    new Map<string, string>([
+    new Map([
         ['key', 'value'],
         ['value', 'key'],
     ]),
 ) ===
     stringifyit(
-        new Map<string, string>([
+        new Map([
             ['value', 'key'],
             ['key', 'value'],
         ]),
@@ -206,21 +206,21 @@ stringifyit(5) === stringifyit('5'); // false
 
 ## Benchmarks
 
-Benchmarked with Node.js v12.6
+Benchmarked with Node.js v12.6.
 
 ### Usage
 
--   `npm run bench` to run benchmarking stringifyit operations/second for different cases
+-   `npm run bench` to run benchmarking stringifyit operations/second for different cases.
 
 ### Results
 
 ```
-array x 1,947,707 ops/sec ±1.60% (85 runs sampled)
-object x 2,366,530 ops/sec ±1.30% (89 runs sampled)
-nestedObject x 29,384 ops/sec ±1.48% (87 runs sampled)
-complexObject_5items x 35,847 ops/sec ±1.87% (87 runs sampled)
-complexObject_10items x 18,407 ops/sec ±2.03% (87 runs sampled)
-complexObject_100items x 1,682 ops/sec ±2.09% (85 runs sampled)
-set x 215,921 ops/sec ±2.52% (84 runs sampled)
-map x 190,451 ops/sec ±2.57% (84 runs sampled)
+array x 2,189,812 ops/sec ±0.34% (86 runs sampled)
+object x 6,753,130 ops/sec ±0.42% (86 runs sampled)
+nestedObject x 107,492 ops/sec ±0.29% (86 runs sampled)
+complexObject_5items x 64,048 ops/sec ±0.29% (85 runs sampled)
+complexObject_10items x 32,239 ops/sec ±0.50% (87 runs sampled)
+complexObject_100items x 3,012 ops/sec ±0.41% (85 runs sampled)
+set x 1,019,424 ops/sec ±0.45% (87 runs sampled)
+map x 386,757 ops/sec ±0.37% (86 runs sampled)
 ```
