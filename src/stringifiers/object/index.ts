@@ -1,4 +1,4 @@
-import type {IStringifier} from '../../Stringifier';
+import type {IStringifier} from '../../types';
 import {stringify} from '../../utils';
 
 function stringifyObject(this: any, stringifier: IStringifier): void {

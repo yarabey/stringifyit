@@ -1,5 +1,6 @@
-import {IStringifier, stringifyit} from '../../Stringifier';
+import type {IStringifier} from '../../types';
 import {stringify} from '../../utils';
+import stringifyit from '../../stringifyit';
 
 function compareMapItems(item1: string[], item2: string[]): number {
     const key1 = item1[0];

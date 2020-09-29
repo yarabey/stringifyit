@@ -1,5 +1,6 @@
-import {IStringifier, stringifyit} from '../../Stringifier';
+import type {IStringifier} from '../../types';
 import {stringify} from '../../utils';
+import stringifyit from '../../stringifyit';
 
 function stringifyArray(this: Array<any>, stringifier: IStringifier, forceSort?: boolean): void {
     let index = this.length;
