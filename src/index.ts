@@ -3,6 +3,8 @@
  */
 import './stringifiers';
 
+export * from './types';
 export * from './errors';
-export * from './Stringifier';
 export {stringify} from './utils';
+export {default} from './Stringifier';
+export {default as stringifyit} from './stringifyit';

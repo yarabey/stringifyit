@@ -1,4 +1,4 @@
-import type {IStringifier} from '../Stringifier';
+import type {IStringifier} from '../types';
 import stringify from './stringify';
 import handleError from './handleError';
 

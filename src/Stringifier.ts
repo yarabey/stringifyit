@@ -1,26 +1,5 @@
+import type {IStringifier, StringifierOptions} from './types';
 import {callObjectStringify, callStringify} from './utils';
-
-export type StringifierOptions = {
-    /**
-     * Sort arrays before stringify.
-     */
-    sortArrays?: boolean;
-    /**
-     * Stringify primitive values (and functions) types.
-     */
-    includePrimitiveTypes?: boolean;
-    /**
-     * Stringify non-primitive values constructor names.
-     */
-    includeConstructorNames?: boolean;
-};
-
-export interface IStringifier {
-    string: string;
-    options: StringifierOptions;
-
-    update(value: unknown): void;
-}
 
 class Stringifier implements IStringifier {
     /**
@@ -57,14 +36,6 @@ class Stringifier implements IStringifier {
             callStringify(value, this);
         }
     }
-}
-
-export function stringifyit(value: unknown, options?: StringifierOptions): string {
-    const stringifier = new Stringifier(options);
-
-    stringifier.update(value);
-
-    return stringifier.string;
 }
 
 export default Stringifier;
