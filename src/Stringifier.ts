@@ -6,7 +6,7 @@ class Stringifier implements IStringifier {
      * Accumulator string.
      */
     public string: string;
-    public options: StringifierOptions;
+    public readonly options: StringifierOptions;
 
     constructor(options: StringifierOptions = {}) {
         this.string = '';
@@ -17,7 +17,7 @@ class Stringifier implements IStringifier {
     /**
      * Stringifies value and append it to current accumulator string.
      */
-    public update(value: any): void {
+    public update(value: unknown): void {
         const type = typeof value;
 
         if (type !== 'object' || value === null) {

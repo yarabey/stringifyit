@@ -2,15 +2,15 @@ export type StringifierOptions = {
     /**
      * Sort arrays before stringify.
      */
-    sortArrays?: boolean;
+    readonly sortArrays?: boolean;
     /**
      * Stringify primitive values (and functions) types.
      */
-    includePrimitiveTypes?: boolean;
+    readonly includePrimitiveTypes?: boolean;
     /**
      * Stringify non-primitive values constructor names.
      */
-    includeConstructorNames?: boolean;
+    readonly includeConstructorNames?: boolean;
 };
 
 export interface IStringifier {
