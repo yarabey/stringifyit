@@ -2,11 +2,13 @@ export type StringifierOptions = {
     /**
      * Sort arrays before stringify.
      */
+
     readonly sortArrays?: boolean;
     /**
      * Stringify primitive values (and functions) types.
      */
     readonly includePrimitiveTypes?: boolean;
+
     /**
      * Stringify non-primitive values constructor names.
      */
