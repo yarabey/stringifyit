@@ -17,5 +17,5 @@ export interface IStringifier {
     string: string;
     options: StringifierOptions;
 
-    update(value: any): void;
+    update(value: unknown): void;
 }
