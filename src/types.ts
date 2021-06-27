@@ -2,8 +2,8 @@ export type StringifierOptions = {
     /**
      * Sort arrays before stringify.
      */
-
     readonly sortArrays?: boolean;
+
     /**
      * Stringify primitive values (and functions) types.
      */
@@ -16,8 +16,18 @@ export type StringifierOptions = {
 };
 
 export interface IStringifier {
-    string: string;
+    /**
+     * Stringifier options.
+     */
     options: StringifierOptions;
 
+    /**
+     * Accumulator string.
+     */
+    string: string;
+
+    /**
+     * Stringifies value and append it to current accumulator string.
+     */
     update(value: unknown): void;
 }

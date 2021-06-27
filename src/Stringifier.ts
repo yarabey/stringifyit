@@ -3,19 +3,19 @@ import {callObjectStringify, callStringify} from './utils';
 
 class Stringifier implements IStringifier {
     /**
-     * Accumulator string.
-     */
-    public string: string;
-
-    /**
      * Stringifier options.
      */
     public readonly options: StringifierOptions;
 
-    constructor(options: StringifierOptions = {}) {
-        this.string = '';
+    /**
+     * Accumulator string.
+     */
+    public string: string;
 
+    constructor(options: StringifierOptions = {}) {
         this.options = options;
+
+        this.string = '';
     }
 
     /**
