@@ -6,7 +6,7 @@ class Stringifier implements IStringifier {
      * Accumulator string.
      */
     public string: string;
-    public options: StringifierOptions;
+    public readonly options: StringifierOptions;
 
     constructor(options: StringifierOptions = {}) {
         this.string = '';
