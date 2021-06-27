@@ -12,7 +12,7 @@ $ npm install stringifyit --save
 
 ## Features
 
--   Wrote on TypeScript;
+-   Written on TypeScript;
 -   Supports Node.js >= 12.6.0;
 -   Supports `Map`/`WeakMap`, `Set`/`WeakSet` and typed arrays;
 -   Supports sort `Set`, `Map`, object keys and optional sort arrays;
