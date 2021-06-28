@@ -1,4 +1,24 @@
-.idea
+# OS
+.DS_Store
+._*
+Thumbs.db
 
-node_modules
-npm-debug.log
+# Editors
+.atom/
+.idea/
+.vscode/
+
+# Node
+node_modules/
+package-lock.json
+
+# Debug
+npm-debug.log*
+
+# Reports
+reports/
+coverage/
+jest.results.json
+
+# Build
+dist/
